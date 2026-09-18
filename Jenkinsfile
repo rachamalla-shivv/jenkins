@@ -1,5 +1,9 @@
-pipeline{
-    agent any 
+pipeline {
+    agent {
+         node {
+            label 'AGENT-01'
+         }
+    }    
     stages {
         stage('Build') {
             steps {
@@ -12,9 +16,10 @@ pipeline{
             }
         }
         stage('Deploy') {
-            steps{
+            steps {
                 echo "deploying"
             }
         }
     }
+
 }
